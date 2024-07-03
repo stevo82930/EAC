@@ -2,37 +2,34 @@
 <html>
 
 <head>
-	<Title>Stack Calculator</Title> 
+	<Title>The Duke of Afthairetos</Title> 
 	
-	<!-- 
-C:\Users\stevo\Desktop\Toolbox Project\Stack Calculator.html
-below is if I had an either/or .css file to reference
-<link rel="stylesheet" href="cdn.css" onerror="this.onerror=null;this.href='local.css';" />
-	/-->
+	
 	
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="theme-color" content="#9ACD32">
+	
 	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 	
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-	
-	
-	
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 	<script type="text/javascript" src="jquery-3.6.0.js"></script> 
-	
+	<!--CSS STYLE-->
 	<style>
+		
 		:root{
 			--backColor1:#000000;
 			--backColor2:#000000;
-			--fontColor1:#505050;
-			--fontColor2:#9ACD32;
-			--tileWhl:40px;
+			--fontColor1:#e7e7e7;
+			--fontColor2:#96c300;
+			
 		}
-		   
+		
+
+
+		
 		.disable-select {
 			 user-select: none; /* supported by Chrome and Opera */
 			 -webkit-user-select: none; /* Safari */
@@ -43,103 +40,197 @@ below is if I had an either/or .css file to reference
 		
 		* {
 			color: var(--fontColor1);
-			text-align: center;
-			font-size: 1.3em;
-			text-shadow: 12px 12px 10px #00000099;
+			font-size: 1.12em;
+			text-shadow: 10px 10px 10px #00000099;
+			
+		}
+		html {
+			height: 100%;
 		}
 		
-		myTitles {
+		body {
+			text-align: center;
+			font-family: Arial;
+			background-attachment: fixed;
+			background-color: DarkGrey; /* For browsers that do not support gradients */
+			background-image: linear-gradient(DarkGrey, Black);
+			background-position: center;
+			background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 1)) , url('White Texture One.jpg')
+			
+		}
+		
+		/* TEXT CONTROL STYLES*/
+		
+		myTitles {/*This is used to highlight words in a text.*/
 			color: var(--fontColor2);
 			font-size: 1em;
 			font-weight: bold;
 			text-shadow: 2px 2px 10px #00000099;
 		}
 		
+		h1 {
+			text-align: center;
+			color: var(--fontColor2);
+			font-size: 1em;
+			font-weight: bold;
+			text-shadow: 2px 2px 10px #00000099;
+			padding: 5px;
+		}
+				
 		.italicized  {
 			font-style: italic;
+		}
+		
+		.bolden {
+			font-weight: bold;
 		}
 		
 		.shrinkText {
 			font-size: 0.6em;
 		}
 		
+		.lightText {
+			/*color: #ffffff99;*/
+			/*filter: invert(100%);*/
+			filter: brightness(-50%);
+			filter: contrast(180%);
+		}
+		
+		.darkText {
+			/*color: #ffffff99;*/
+			/*filter: invert(100%);*/
+			filter: brightness(40%);
+		}
+		
+		.darkerShadow {
+			text-shadow: 100px, 100px;
+		}
+		
+		.jumbo {
+			font-size: 1.3em;
+			font-weight: bold;
+			padding: 0;
+			/*padding for buttons in the input controller*/
+		}
+		
+		hr.small {
+			margin-left:40%;
+			margin-right:40%;
+			margin-top:2px;
+			margin-bottom:2px;
+		}
+		
+		/* STYLES FOR THE VARIOUS DRAWERS  filter: blur(5px);*/
+		
 		.inputCanvas {
 			height: 0%;
 			width: 100%;
 			position: fixed;
-			z-index: 2;
+			z-index: 5;
 			top: 0;
 			left: 0;
-			background-color: #00000099;
+			background-color: #000000cc;
 			overflow-y: hidden; 
 			transition: 0.5s;
 			text-align:center;
 		}
 		
-		.mainContainer {
+		div.detailsCanvas {
+			height: 0%;
+			width: 100%;
+			position: fixed;
+			z-index: 3;
+			top: 0;
+			left: 0;
+			background-color: #000000cc;
+			overflow-y: auto; 
+			transition: 0.5s;
+			text-align:center;
 		}
 		
-		.readoutVerticalRow {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			height: 3em;
-			background-color: #55555500;
-			justify-content: center;
+		div.listCanvas {
+			height: 100%;
+			width: 0%;
+			position: fixed;
+			max-width: 400px;
+			margin: auto;
+			z-index: 2;
+			top: 0;
+			right: 0;
+			background-color: #ffffffcc;
+			overflow-y: auto; 
+			transition: 0.25s;
+			text-align: left;
 		}
 		
-		.lowerContainer {
+		div.leftListCanvas {
+			height: 100%;
+			width: 0%;
+			position: fixed;
+			max-width: 400px;
+			margin: auto;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			background-color: #ffffffcc;
+			overflow-y: auto; 
+			transition: 0.25s;
+			text-align: right;
 		}
 		
-		.stablizer {
-			background-color: #55555500;
-			width: 33%;
-			height: 1.3em;
-			border: none;
-			
-		}	
-		
-		.verticalLine {
-			border-left: 1px solid var(--fontColor2);
-			height: 1em;
+		div.bottomTabCanvas {
+			height: 0%;
+			width: 90%;
+			position: fixed;
+			margin: auto;
+			left: 0; 
+			bottom: 0; 
+			right: 0;
+			max-height: 60%;
+			z-index: 2;
+			border-radius: 30px 30px 0px 0px;
+			background-color: #ffffffcc;
+			overflow-y: auto; 
+			transition: 0.25s;
+			text-align: center;
 		}
 		
-		.row {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			background-color: #55555500;
-			border: none;
-			justify-content: space-evenly;
+		div.topTabCanvas {
+			height: 0%;
+			width: 90%;
+			position: fixed;
+			margin: auto;
+			left: 0; 
+			top: 0; 
+			right: 0;
+			max-height: 60%;
+			z-index: 2;
+			border-radius: 30px 30px 0px 0px;
+			background-color: #ffffffcc;
+			overflow-y: auto; 
+			transition: 0.25s;
+			text-align: center;
 		}
 		
-		button {
-        	text-align: center;
-			border: 6px solid var(#ff7744ff);
-			background-color: #00000000;
-			text-shadow: 2px 2px 5px #999999;
-			border-radius: 48%;
+		div.middleTabCanvas {
+			height: 0%;
+			width: 90%;
+			position: fixed;
+			margin: auto;
+			top: 0;
+			left: 0; 
+			bottom: 0; 
+			right: 0;
+			max-height: 90%;
+			max-width: 90%;
+			z-index: 2;
+			border-radius: 30px;
+			background-color: #ffffffcc;
+			overflow-y: auto; 
+			transition: 0.25s;
+			text-align: center;
 		}
 		
-		button.arrow {
-			color: var(--fontColor2);
-		}
-		
-		button.number {
-			color: var(--fontColor1);
-		}
-		
-		button.onCanvas {
-			color: var(--fontColor2);
-			text-shadow: 2px 2px 5px #000000;
-		}
-		
-		button:active {
-			transform: translateY(3%);
-			box-shadow: inset 8px 6px 10px rgba(0,0,0,0.17), inset -8px -8px 4px #ffffff17;
-			text-shadow: 1px 1px 5px #999999;
-		}
-
 		.inputCanvas input {
 			color: var(--fontColor2);
 			background-color: #00000000;
@@ -151,6 +242,106 @@ below is if I had an either/or .css file to reference
             border-radius: 8px;
 		}
 		
+		/* SMALLER DIV ELEMEMTS FOR POSITIONING */
+		
+		
+		br.inlandscape {
+			display:block;
+		}
+		
+		div.triplet {
+			overflow: visible;
+			height: 30%;
+			width: 100%;
+			text-align: center;
+		}
+		
+		div.stabilizer {
+			display: inline-block;
+			height: 100%;
+			width: 30%;
+			margin: 0;
+			padding: 0; 
+			/*padding for buttons in the input controller*/
+			text-align: center;
+		}
+		
+		div.squareDiv {
+			aspect-ratio : 1 / 1;
+			width: 90%;
+			max-width: 300px;
+			margin: auto;
+			text-align: center;
+			display: inline-block;
+		}
+		
+		.card {
+			max-width: 500px;
+			margin: auto;
+			background-color: #55555500;
+			margin:10px;
+		}
+		
+		.cardHolder {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: center;
+			background-color: #55555500;
+			justify-content: center;
+		}
+		
+		/* MY BEAUTIFUL BUTTONS */
+		
+		button {
+        	text-align: center;
+			border: none;
+			background-color: #00000000;
+			/*text-shadow: 2px 2px 5px #999999;*/
+			border-radius: 48%;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		
+		button.token {
+			border-radius: 10%;
+			padding-left: 5px;
+			padding-right: 10px;
+			
+		}
+		
+		button.listitem {
+			border-radius: 5%;
+			padding-left: 5px;
+			padding: 10px;
+		}
+		
+		button.spaced {
+			border-bottom: 20px;
+		}
+		
+		button.closeBTN {
+			margin-bottom: 30px;
+		}
+		
+		button.onCanvas {
+			color: var(--fontColor2);
+			text-shadow: 2px 2px 5px #000000;
+		}
+		
+		button:disabled,
+		button[disabled]{
+			color:#99999920;
+			text-shadow: none;
+		}
+		
+		button:active {
+			transform: translateY(7%);
+			box-shadow: inset 8px 6px 10px rgba(0,0,0,0.17), inset -8px -8px 4px #ffffff17;
+			text-shadow: 1px 1px 5px #999999;
+		}
+		
+		/* SPACIFIC STYLES */
+		
 		#description {
 			padding: 0px 20px ;
 			font-size: 1em;
@@ -158,33 +349,49 @@ below is if I had an either/or .css file to reference
 			text-shadow: none;
 		}
 		
-		#countReadout {
-			text-align: center;
-			font-size: 1.3em;
-			color: var(--fontColor1);
-			font-weight: bold;
-			text-shadow: 12px 12px 10px #00000099;
+		#controllerCanvas {
+			max-width:1000px;
+			max-height:400px;
+			overflow:hidden;
 		}
 		
-		#subReadout {
-			text-align: center;
-			font-size: 0.7em;
-			display: none;
+		#topleftcontroller {
+			float: left;
 		}
 		
-		#header {
-			position:relative;
+		#bottrightcontroller {
+			float: right;
+		}
+		
+		#midcontroller {
+			line-height: 100px;
+			display: inline-block;
+			vertical-align: middle;
 			text-align: center;
-			font-size: 0.7em;
-			padding: 12px 1px;
+		}
+		
+		/* FLUXUATION */
+		
+		@media screen and (orientation:portrait) {
+			h1 {
+				
+			}
+			
+		
+			br.inlandscape {
+				display:none;
+			}
+			
 		}
 		
 		
 	</style>
 	<script>
+	// UPPER SCRIPT AND QUICK SETTINGS
+	
 		/*
 		 */
-		//Stevo's tester. use like this: sr.x || sr.ct++ || alert(sr.ct) || sr.x = "testing"; //ect. The logger will display the stuff.
+		//Stevo's tester. use like this: sr.x || sr.ct++ || alert(sr.ct) || sr.ct = "testing"; //ect. sr will be console only.
 		var  sr =  {
 			ct : 0,
 			history : "Testing",
@@ -207,496 +414,218 @@ below is if I had an either/or .css file to reference
 				console.log(testX);
 				sr.history = sr.ct;
 			},
-			get stop () {
-				const alerted = {Syntax: "sr.stop;", Count: "unchanged at " + sr.ct, Message:sr.history};
+			stop (content = "") {
+				const alerted = {Syntax: "sr.stop;", Count: "unchanged at " + sr.ct, Message:sr.history+" Provided content: "+content};
 				console.table({alerted});
 				//This could have the ability to give a different result if the sr.stop is called while all alone.
 				//if the sr.ct is equal to sr.history then the alert should be "testing" or sr.ct with a description as to why. etc.
-				alert(sr.history);
+				alert(content+" and sr.history: "+sr.history);
 			}
+			
 		}
 		
-		var countInput = 3;// The final sum of the calculator
-		var target = "boxes"; //This will be a copy of the id for the variable and button to modify by proxy.
-		var boxes = 1;
-		var layers = 1;
-		var pallets = 1;
-		var unitsPerBox = 1;
-		var boxesPerLayer = 1;
-		var layerPerPallet = 1;
-		var offsetCount = 0;
-		var goal = 0;
+		var target = "";
+		var userFocus = "body";
+		
+		var player = {
+			name:"Player",
+			race:"Human",
+			bloodWound: 0,
+			bloodTolerance: 10,
+			crushWound: 0,
+			crushTolerance: 10,
+			innerWound: 0,
+			innerTolerance: 10,
+			mindWound: 0,
+			mindTolerance: 10,
+			curseWound: 0,
+			curseTolerance: 5,
+			silver: 0,
+			level: 1.0,
+			goodRep: 10,
+			badRep: 10,
+			state: [],
+			items: [],
+			titles: [],
+			memory: [],
+			actToken:"Idle"
+		}
 		localStorageInitiation();
 		
+		
+		//This is for the starage of variables
 		function localStorageInitiation () {
-			if (localStorage.exists) {
-				countInput = Number(localStorage);// The final sum of the calculator
-				boxes = Number(localStorage.boxes);
-				layers = Number(localStorage.layers);
-				pallets = Number(localStorage.pallets);
-				unitsPerBox = Number(localStorage.unitsPerBox);
-				boxesPerLayer = Number(localStorage.boxesPerLayer);
-				layerPerPallet = Number(localStorage.layerPerPallet);
-				offsetCount = Number(localStorage.offsetCount);
-				goal = Number(localStorage.goal);
+			if (localStorage.exists){
+				let playerString = localStorage.getItem("player");
+				//goal = Number(localStorage.goal); // Example
+				player = JSON.parse(playerString);
 			} else {
+				//localStorage.setItem("goal", 0); //Example
 				localStorage.setItem("exists", true);
-				localStorage.setItem("countInput", 3);
-				localStorage.setItem("boxes", 1);
-				localStorage.setItem("layers",  1);
-				localStorage.setItem("pallets",  1);
-				localStorage.setItem("unitsPerBox",  1);
-				localStorage.setItem("boxesPerLayer",  1);
-				localStorage.setItem("layerPerPallet",  1);
-				localStorage.setItem("offsetCount",  0);
-				localStorage.setItem("goal", 0);
-				
+				localStorage.setItem("player", JSON.stringify(player));
 			}
 		}
+		
 		//This is to set the best press for the input. Then set the functions in jquerry
 		function isTouch() {
+		{
 			try{ document.createEvent("TouchEvent"); return true; }
 			catch(e){ return false; }
 		}
-		
-		if(isTouch()){
-			$(document).ready(
-				function(){
-					$("button").on('touchstart',function(){
-						buttonHandler(this.id, this.name);
-					});
-				}
-			);
-		}else{
-			$(document).ready(
-				function(){
-					$("button").mousedown(function(){
-						buttonHandler(this.id, this.name);
-					});
-				}
-			);
+			if(isTouch()){
+				$(document).ready(
+					function(){
+						$("button").on('touchstart',function(){
+							//The bellow function was renamed for another purpose. I was wondering iff I even need this jquery but I will know more after I try using a touchscreen.
+							//If that happens then I will need to reinstate the buttonHandler().
+							buttonHandler(this.id, this.name);
+						});
+					}
+				);
+			}else{
+				$(document).ready(
+					function(){
+						$("button").mousedown(function(){
+							buttonHandler(this.id, this.name);
+						});
+					}
+				);
+			}
 		}
-
-
 	</script>
 
 </head>
 
-
-<body>
-
-
-
-	<div id="inputCanvas1" class ="inputCanvas">
-		<br>
-		<form action="#" onsubmit="submitInputProxy(); closeProxy(); return false;">
-				<input type="number" name="inputProxy" id="inputProxy" value="1">
-		</form>
-			<p name="description" id="description"></p>
-			<button type="button" name="proxySubmit" id="proxySubmit" class="disable-select onCanvas">Submit ➤</button>
-	</div>
-	
+<body onload="initiation()">
 	<div class="mainContainer">
 	
 		<div class="row">
-			<div class="readoutVerticalRow">
-				<p name="countReadout" id="countReadout">3</p>
-				<p name="subReadout" id="subReadout">/0 (0%)</p>
-			</div>	
-			<p name="header" id="header">Stack Calculator</p>
+			<h1 name="sheetName" id="sheetName">Sermon Title</h1>
+			<p>Summary Goes Here</p>
 		</div>
 		
 		<hr>
 		
 		<div>
-			<div class="row">
-				<div class="stablizer">
-					<button type="button" name="up1" id="up1" class="disable-select arrow">▲</button>
-				</div>
-				<div class="stablizer">
-					<button type="button" name="up2" id="up2" class="disable-select arrow">▲</button>
-				</div>
-				<div class="stablizer">
-					<button type="button" name="up3" id="up3" class="disable-select arrow">▲</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="stablizer">
-					<button type="button" name="boxes" id="boxes" class="disable-select number italicized" onclick="showProxyCanvas('boxes')">1</button>
-				</div>
-				<div class="stablizer">
-					<button type="button" name="layers" id="layers" class="disable-select number italicized" onclick="showProxyCanvas('layers')">1</button>
-				</div>
-				<div class="verticalLine">
-				</div>
-				<div class="stablizer">
-					<button type="button"name="pallets"  id="pallets" class="disable-select number" onclick="showProxyCanvas('pallets')">1</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="stablizer">
-					<button type="button"name="down1"  id="down1" class="disable-select arrow">▼</button>
-				</div>
-				<div class="stablizer">
-					<button type="button"name="down2"  id="down2" class="disable-select arrow">▼</button>
-				</div>
-				<div class="stablizer">
-					<button type="button" name="down3" id="down3" class="disable-select arrow">▼</button>
-				</div>	
-			</div>
+			<h1 name="actToken" id="actToken">Information for EAC goes here</h1>
 		</div>
+		
 		
 		<hr>
 		
-		<div class="lowerContainer">
-			<div class="row">
-				<div class="stablizer">
-					<button type="button"  name="up4"id="up4" class="disable-select arrow">▲</button>
-				</div>
-				<div class="stablizer">
-					<button type="button"  name="up5"id="up5" class="disable-select arrow">▲</button>
-				</div>
-				<div class="stablizer">
-					<button type="button"  name="up6"id="up6" class="disable-select arrow">▲</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="stablizer">
-					<button type="button" name="unitsPerBox" id="unitsPerBox" class="disable-select number"  onclick="showProxyCanvas('unitsPerBox')">1</button>
-				</div>
-				<div class="verticalLine">
-				</div>
-				<div class="stablizer">
-					<button type="button" name="boxesPerLayer" id="boxesPerLayer" class="disable-select number" onclick="showProxyCanvas('boxesPerLayer')">1</button>
-				</div>
-				<div class="verticalLine">
-				</div>
-				<div class="stablizer">
-					<button type="button" name="layerPerPallet" id="layerPerPallet" class="disable-select number" onclick="showProxyCanvas('layerPerPallet')">1</button>
-				</div>
-			</div>
-			<div class="row">
-				<div class="stablizer">
-					<button type="button" name="down4" id="down4" class="disable-select arrow">▼</button>
-				</div>
-				<div class="stablizer">
-					<button type="button" name="down5" id="down5" class="disable-select arrow">▼</button>
-				</div>
-				<div class="stablizer">
-					<button type="button" name="down6" id="down6" class="disable-select arrow" >▼</button>
-				</div>	
-			</div>
-		</div>
+		<h1 name="header" id="header">Test output here</h1>
 		
+	</div>
+
+	<div id="inputCanvas1" class ="inputCanvas">
+		<br>
+		<form action="#" onsubmit="submitInputProxy(); closeProxy(); return false;">
+				<input type="input" name="inputProxy" id="inputProxy" value="1">
+			<p name="description" id="description"></p>
+			<button type="submit" name="proxySubmit" id="proxySubmit" class="disable-select onCanvas">Submit ➤</button>
+		</form>
 		<hr>
-		
-		<div class="row">
-			<div class="stablizer">
-				<button type="button" name="goal" id="goal" class="disable-select number shrinkText" onclick="showProxyCanvas('goal')">Goal</button>
-			</div>
-			<div class="stablizer">	
-				<button type="button" name="offsetCount" id="offsetCount" class="disable-select number shrinkText" onclick="showProxyCanvas('offsetCount')">Offset</button>
-			</div>
+		<button type="button" name="closeproxy" id="closeproxy" class="disable-select onCanvas" onclick="drawerOpenClose()">Close</button>
+	</div>
+
+	<div id="bottomTabCanvas" class ="bottomTabCanvas">
+		<div id="bottomList" class="listOfItems">
+			<button type="button" name="engage" id="engage" class="disable-select listitem darkText">Engage with an NPC</button>
+			<hr class="small">
+			<button type="button" name="talk" id="talk" class="disable-select listitem darkText">Converse with NPC</button>
+			<hr class="small">
+			<button type="button" name="stuffto" id="stuffto" class="disable-select listitem darkText">Use/give item on/to NPC</button>
+			<hr class="small">
+			<button type="button" name="stufffrom" id="stufffrom" class="disable-select listitem darkText">Request an item/favor from the NPC</button>
+			<hr class="small">
+			<button type="button" name="poke" id="poke" class="disable-select listitem darkText">Assult/provoke the NPC</button>
+			<hr class="small">
+			<button type="button" name="flee" id="flee" class="disable-select listitem darkText">Break from all engagements</button>
+			<hr class="small">
+			<button type="button" name="other" id="other" class="disable-select listitem darkText">Attempt something not listed</button>
+		</div>
+		<hr>
+		<div>
+			<button type="button" name="closeBottom" id="closeBottom" class="disable-select closeBTN darkText" onclick="drawerOpenClose()">Close</button>
 		</div>
 	</div>
+
 </body>
-
-
 <script>
-	//This will load the correct information from the localStorage into the html elements.
-	updateText("countReadout", calcTotal());
-	newStats();
-	updateElements();
+	function initiation(){
+		
+		
+	}
 	
-	//This will open the inputCanvas and select the inputProxy input field. It will also pass the buttonID arg to the 'target' variable.
-	//Keyboard changes the 50% and smashes drawer https://stackoverflow.com/questions/4207880/android-how-do-i-prevent-the-soft-keyboard-from-pushing-my-view-up
-	function showProxyCanvas(buttonID = "offsetCount") {//need to stopt the 'goal' from making input a 0.
-		var text = Number(document.getElementById(buttonID).innerHTML);
-		var inputCanvasHeight = document.getElementById("inputCanvas1").clientHeight;
-		if(inputCanvasHeight != 0) return;
-		if(buttonID == "goal") text = goal.toString();
-		if(isNaN(text)) text = 0;
-		target = buttonID;
-		updateText("inputProxy", text);
-		updateText("description", information(buttonID));
-		document.getElementById("inputCanvas1").style.height = "100%";
-		document.getElementById("inputProxy").focus();
-		document.getElementById("inputProxy").select();
+	//This should open close the drawers listed in the canvas array. Callback with no argument will close, spacific will open.
+	function drawerOpenClose(specific = "close"){
+		var element = document.getElementById("tempCenterCanvas");
+		var axis = "horizontal";
+		if(specific != "close"){
+			element = document.getElementById(specific);
+		}
+		//list of canvases to ensure closeure.
+		const canvas = [
+			"inputCanvas1",
+			"detailsCanvas1",
+			"statusListCanvas1",
+			"itemsListCanvas1",
+			"titlesListCanvas1",
+			"endeavorCanvas",
+			"discoverCanvas",
+			"partyCanvas",
+			"selfCanvas",
+			"enemyCanvas",
+			"npcCanvas",
+			"playerCanvas",
+			"controllerCanvas",
+			
+			"tempCanvasV",
+			"tempCanvasH",
+			
+			"tempCenterCanvas"
+		];
+		
+		if(element.classList.contains("vertical") && specific != "close"){
+			axis = "vertical";
+		}
+		
+		
+		
+		for(let i = 0; i < canvas.length; i++){
+			if(canvas[i] == specific && userFocus != canvas[i]){
+				if(specific == "statusListCanvas1" || specific == "itemsListCanvas1" || specific == "titlesListCanvas1" || specific == "tempCanvasH"){
+					document.getElementById(specific).style.width = "100%";
+				}else{
+					document.getElementById(specific).style.height = "100%";
+				}
+				userFocus = specific;
+			}else{
+				if(canvas[i] == userFocus)userFocus = "body";
+				if(canvas[i] == "statusListCanvas1" || canvas[i] == "itemsListCanvas1" || canvas[i] == "titlesListCanvas1" || canvas[i] == "tempCanvasH"){
+					if(document.getElementById(canvas[i])!== null) document.getElementById(canvas[i]).style.width = "0%";
+					
+				}else{
+					if(document.getElementById(canvas[i])!== null) document.getElementById(canvas[i]).style.height = "0%";
+				}
+			}
+			//document.getElementById("inputProxy").blur();
+		}
 	}
-
-	//This will simply close the inputCanvas1.
-	function closeProxy() {
-		document.getElementById("inputCanvas1").style.height = "0";
-		document.getElementById("inputProxy").blur();
-	}
-
-	//Used to apply the inputProxy input field value to the appropriate variable based on the variable 'target.' 
+	
+	//This will now be to process user input.This should be different from the other button inputs.
 	function submitInputProxy() {
+	alert("submit was success Probe 81");
 		var newInput = Number(document.getElementById("inputProxy").value);
 		switch(target) {
 			case "boxes":
-				boxes = newInput;
-				updateText("boxes", boxes);
-				break;
-			case "layers":
-				layers = newInput;
-				updateText("layers", layers);
-				break;
-			case "pallets":
-				pallets = newInput;
-				updateText("pallets", pallets);
-				break;
-			case "unitsPerBox":
-				unitsPerBox = newInput;
-				updateText("unitsPerBox", unitsPerBox);
-				updateText("goal", goal + " (" + (goal / unitsPerBox) + ")");
-				break;
-			case "boxesPerLayer":
-				boxesPerLayer = newInput;
-				updateText("boxesPerLayer", boxesPerLayer);
-				break;
-			case "layerPerPallet":
-				layerPerPallet = newInput;
-				updateText("layerPerPallet", layerPerPallet);
-				break;
-			case "offsetCount":
-				offsetCount = newInput;
-				updateText("offsetCount", offsetCount);
-				break;
-			case "goal":
-				goal = newInput;
-				const goalReadOut = goal == 0 ? "Goal" : goal + " (" + Math.floor(goal / unitsPerBox) + ")";
-				updateText("goal", goalReadOut);
+				//boxes = newInput;
+				//updateText("boxes", boxes);
 				break;
 			default:
-					
+				alert(newInput);
 		}
-		saveToLocalStorage();
-		updateText("countReadout", calcTotal());
-		newStats();
+		//saveToLocalStorage();
 	}
-
-	//I had a problem with my phone emulating a click and I want to handle it as a press, so... You should look at the jquery to call this. 
-	//When this is called from jquerry I cannot get the showProxyCanvas to auto select the text field. So some buttons use onclick.
-	//This handles some of different buttons.
-	function buttonHandler(buttonID = "noID", buttonName = "noName"){
-		if(typeof buttonID != "string") return;
-		const  inputCanvasHeight = document.getElementById("inputCanvas1").clientHeight;
-		var goalReadOut = 0;
-		if(inputCanvasHeight == 0){
-			switch(buttonID) {
-				case "up1":
-					boxes++;
-					updateText("boxes", boxes);
-					break;
-				case "up2":
-					layers++;
-					updateText("layers", layers);
-					break;
-				case "up3":
-					pallets++;
-					updateText("pallets", pallets);
-					break;
-				case "down1":
-					boxes--;
-					updateText("boxes", boxes);
-					break;
-				case "down2":
-					layers--;
-					updateText("layers", layers);
-					break;
-				case "down3":
-					pallets--;
-					updateText("pallets", pallets);
-					break;
-				case "up4":
-					unitsPerBox++;
-					updateText("unitsPerBox", unitsPerBox);
-					goalReadOut = goal == 0 ? "Goal" : goal + " (" + Math.floor(goal / unitsPerBox) + ")";
-					updateText("goal", goalReadOut);
-					break;
-				case "up5":
-					boxesPerLayer++;
-					updateText("boxesPerLayer", boxesPerLayer);
-					break;
-				case "up6":
-					layerPerPallet++;
-					updateText("layerPerPallet", layerPerPallet);
-					break;
-				case "down4":
-					unitsPerBox--;
-					updateText("unitsPerBox", unitsPerBox);
-					goalReadOut = goal == 0 ? "Goal" : goal + " (" + Math.floor(goal / unitsPerBox) + ")";
-					updateText("goal", goalReadOut);
-					break;
-				case "down5":
-					boxesPerLayer--;
-					updateText("boxesPerLayer", boxesPerLayer);
-					break;
-				case "down6":
-					layerPerPallet--;
-					updateText("layerPerPallet", layerPerPallet);
-					break;
-			}
-			saveToLocalStorage();
-			updateText("countReadout", calcTotal());
-			newStats();
-		}else{
-			if(buttonID == "proxySubmit")submitInputProxy();
-			closeProxy();
-		}
-	}
-	
-	//This will calulate the overall total count
-	function calcTotal() {
-		const amountFromBox = boxes * unitsPerBox;
-		const amountFromLayers = (layers * boxesPerLayer) * unitsPerBox;
-		const amountFromPallets = ((pallets * layerPerPallet) * boxesPerLayer) * unitsPerBox;
-		countInput = Number(amountFromBox + amountFromLayers + amountFromPallets + offsetCount);
-		return countInput;
-	}
-
-	//This will calulate partial pallet only. May not be needed.
-	function calcPartial() {
-		const amountFromBox = boxes * unitsPerBox;
-		const amountFromLayers = (layers * boxesPerLayer) * unitsPerBox;
-		return Number(amountFromBox + amountFromLayers);
-	}
-	
-	//This will calulate the amount of pieces or boxes per pallet.
-	function calcPallet(unit = "pieces") {
-		const amountOf =  unit == "pieces" ? Number((layerPerPallet * boxesPerLayer)  * unitsPerBox) : Number(layerPerPallet * boxesPerLayer);
-		return amountOf;
-	}
-
-	//This will make the text values current with the latest calculations. Needed for loading from local storage.
-	function updateElements() {
-		updateText("boxes", boxes);
-		updateText("layers", layers);
-		updateText("pallets", pallets);
-		updateText("unitsPerBox", unitsPerBox);
-		updateText("boxesPerLayer", boxesPerLayer);
-		updateText("layerPerPallet", layerPerPallet);
-		updateText("offsetCount", offsetCount);
-		const goalReadOut = goal == 0 ? "Goal" : goal + " (" + Math.floor(goal / unitsPerBox) + ")";
-		updateText("goal", goalReadOut);
-	}
-
-	//This will change text on an element or value in a number input.
-	function updateText(elementID, text) {
-		x = document.getElementById(elementID).type;
-		x == "number" ? document.getElementsByName(elementID)[0].value = text : document.getElementById(elementID).innerHTML = text;
-	}
-	
-	function newStats() {
-		if(goal == 0 || goal == "Goal"){
-			updateText("header", "Stack Calculator"+"</br>" +"Units per Whole: " + calcPallet("pieces") + " (" + calcPallet("box on the pallet") +")");
-			document.getElementById("subReadout").style.display = "none";
-			//maybe add the Offset pressence here to remind the user.
-		}else if(unitsPerBox==0 || boxesPerLayer==0 || layerPerPallet==0){
-			updateText("header", "There are zeros (0) somewere that there should not be any. </br>Please set them to 1 if you would like them to not affect the count.");
-		}else{
-			document.getElementById("subReadout").style.display = "block";
-			document.getElementById("header").style.height = "10em";
-			let goalPercent = Math.round((countInput / goal)* 100);
-			const remainingSmalls = goal - countInput;//Primary
-			const remainingBoxes = remainingSmalls / unitsPerBox;
-			let remainingPallets = Math.floor(remainingBoxes / calcPallet("box"));//This might not be needed, unless the user will want to do warehouse planning.
-			let goalFullBoxes = Math.floor(goal / unitsPerBox);//Primary
-			let endingPallets = Math.floor(goalFullBoxes / calcPallet("box"));
-			const endingBoxesPartial = goalFullBoxes - (calcPallet("box") * endingPallets);// This was tested and was the final pallet boxes on partial layer.
-			let endingboxesPartial = (endingBoxesPartial - Math.floor(endingBoxesPartial / boxesPerLayer) * boxesPerLayer);
-			const endingLayersPartial = (endingBoxesPartial - endingboxesPartial) / boxesPerLayer;
-			updateText("header", 
-				"Units per Whole: " + 
-				calcPallet("pieces") +
-				" (" +
-				calcPallet("box on the pallet") +
-				") " +
-				"</br>" +
-				"100% at: " +
-				endingboxesPartial +
-				", " +
-				endingLayersPartial +
-				", " +
-				endingPallets +
-				" (" +
-				endingPallets +
-				" Whole)"
-			);
-			
-			updateText("subReadout", "/" + remainingSmalls + " (" + goalPercent +"%)");
-		}
-		
-	}
-
-	
-	//This will return the information for the user to read from anywhere.
-	function information(selection){
-		switch(selection) {
-			case "boxes":
-				return "Usually completed <myTitles>boxes</myTitles> on the partial layer. This is our smallest group of units. Can be used to count vertical stacks of single units too. "+
-				"When the app is used for counting items on a trays (platform), it is best to assign this number to whole rows of one direction. ";
-				break;
-			case "layers":
-				return "Completed <myTitles>layers</myTitles>. The only time this would be used differently is when the other partial counter (to the left) is "+
-				"used for vertical stacks of single units.";
-				break;
-			case "pallets":
-				return "For counting <myTitles>whole</myTitles>, complete groups. This is our largest group of units. "+
-				"Calculates based on the two partial counters (to the left). This can apply to <myTitles>shipping containers, crates or pallets</myTitles>!";
-				break;
-			case "unitsPerBox":
-				return "For defining the amount of single units in the smallest container, in most cases a <myTitles>box</myTitles>. "+
-				"Setting this to 1 will nullify this variable. To add a partial of these to the total count, use the \"Offset\" feature.";
-				break;
-			case "boxesPerLayer":
-				return "To define how many containers there are per full <myTitles>layer</myTitles>. "+
-				"The only time this would be used differently is if the lesser defined container is used for vertical stacks, "+
-				"in which case this would be used for how many of them there are per row.";
-				break;
-			case "layerPerPallet":
-				return "This is a multiplier for the variable to the left. Should be set to however many <myTitles>layers per whole shipping container, crate or pallet</myTitles>. ";
-				break;
-			case "offsetCount":
-				return "The offset will adjust the total count for any reason required. If there is a <myTitles>partial box/stack</myTitles> (top-left-most number) that you want to include in the count, this is where to put it.";
-				break;
-			case "goal":
-				return "This is an optional detail that will add some related statistics to the readout. The <myTitles>goal</myTitles> would be what ever amount the count is moving toward.";
-				break;
-			default:
-				return "There was an invalid info query";
-		}
-	
-	}
-	
-	//This is to save the variables to the localStorage for use next time.
-	function saveToLocalStorage () {
-		localStorage.setItem("exists", true);
-		localStorage.setItem("countInput", countInput);
-		localStorage.setItem("boxes", boxes);
-		localStorage.setItem("layers",  layers);
-		localStorage.setItem("pallets",  pallets);
-		localStorage.setItem("unitsPerBox",  unitsPerBox);
-		localStorage.setItem("boxesPerLayer",  boxesPerLayer);
-		localStorage.setItem("layerPerPallet",  layerPerPallet);
-		localStorage.setItem("offsetCount",  offsetCount);
-		localStorage.setItem("goal", goal);
-	}
-	
-	
-
-
-
-
-
-
-
-	
 </script>
-
-
-
 </html>
-
-
