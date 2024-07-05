@@ -2,15 +2,15 @@
 <html>
 
 <head>
-	<Title>The Duke of Afthairetos</Title> 
+	<Title>EAC Sermon Guide</Title> 
 	
 	
 	
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	
+	<meta name="theme-color" content="#66ccff">
 	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-	
+	 <!--This is the test-->
     <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
 	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
@@ -24,7 +24,7 @@
 			--backColor2:#000000;
 			--fontColor1:#e7e7e7;
 			--fontColor2:#96c300;
-			
+			--fontColor3:#ffab40;
 		}
 		
 
@@ -55,7 +55,7 @@
 			background-color: DarkGrey; /* For browsers that do not support gradients */
 			background-image: linear-gradient(DarkGrey, Black);
 			background-position: center;
-			background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 1)) , url('White Texture One.jpg')
+			background-image: linear-gradient(rgba(0, 0, 0, 0.75),rgba(0, 0, 0, 1)) , url('https://github.com/stevo82930/Repository/blob/main/White%20Texture%20One.jpg?raw=true');
 			
 		}
 		
@@ -71,11 +71,26 @@
 		h1 {
 			text-align: center;
 			color: var(--fontColor2);
+			font-size: 2em;
+			font-weight: bold;
+			text-shadow: 2px 2px 10px #00000099;
+			padding: 5px;
+		}
+		
+		h2 {
+			<--text-align: center;/-->
+			color: var(--fontColor2);
 			font-size: 1em;
 			font-weight: bold;
 			text-shadow: 2px 2px 10px #00000099;
 			padding: 5px;
 		}
+		
+		mark {
+			color: var(--fontColor3);
+			background-color: #ffffff00;
+		}
+		
 				
 		.italicized  {
 			font-style: italic;
@@ -104,13 +119,6 @@
 		
 		.darkerShadow {
 			text-shadow: 100px, 100px;
-		}
-		
-		.jumbo {
-			font-size: 1.3em;
-			font-weight: bold;
-			padding: 0;
-			/*padding for buttons in the input controller*/
 		}
 		
 		hr.small {
@@ -232,11 +240,12 @@
 		}
 		
 		.inputCanvas input {
-			color: var(--fontColor2);
+			color: var(--fontColor3);
 			background-color: #00000000;
 			width:50%;
 			height:1.5em;
         	font-size:1.6em;
+			text-align: center;
             border: none;
 			text-shadow: 2px 2px 5px black;
             border-radius: 8px;
@@ -427,42 +436,18 @@
 		var target = "";
 		var userFocus = "body";
 		
-		var player = {
-			name:"Player",
-			race:"Human",
-			bloodWound: 0,
-			bloodTolerance: 10,
-			crushWound: 0,
-			crushTolerance: 10,
-			innerWound: 0,
-			innerTolerance: 10,
-			mindWound: 0,
-			mindTolerance: 10,
-			curseWound: 0,
-			curseTolerance: 5,
-			silver: 0,
-			level: 1.0,
-			goodRep: 10,
-			badRep: 10,
-			state: [],
-			items: [],
-			titles: [],
-			memory: [],
-			actToken:"Idle"
-		}
-		localStorageInitiation();
 		
 		
 		//This is for the starage of variables
 		function localStorageInitiation () {
 			if (localStorage.exists){
-				let playerString = localStorage.getItem("player");
+				let playerString = localStorage.getItem("sermon");
 				//goal = Number(localStorage.goal); // Example
-				player = JSON.parse(playerString);
+				sermon = JSON.parse(playerString);
 			} else {
 				//localStorage.setItem("goal", 0); //Example
 				localStorage.setItem("exists", true);
-				localStorage.setItem("player", JSON.stringify(player));
+				localStorage.setItem("sermon", JSON.stringify(sermon));
 			}
 		}
 		
@@ -498,57 +483,115 @@
 
 <body onload="initiation()">
 	<div class="mainContainer">
-	
+		<img src="https://github.com/stevo82930/Repository/blob/main/Color%20Logo%20of%20CMA.png?raw=true" alt="Logo From FB" style="width:30%;height:30%; max-width: 500px; margin: auto;">
 		<div class="row">
-			<h1 name="sheetName" id="sheetName">Sermon Title</h1>
-			<p>Summary Goes Here</p>
+			<h1 name="sheetName" id="sheetName">Jesus, the Baptism</h1>
+			<p>Preached by Elder Stephen Rees</p>
 		</div>
 		
 		<hr>
 		
-		<div>
-			<h1 name="actToken" id="actToken">Information for EAC goes here</h1>
+		<h1 name="par1" id="par1">Analysis of the life of Christ (For Context)</h1>
+		<div style="text-align: left; padding: 20px; width: fit-content; max-width: 1500px; margin: auto;">
+			<ul>
+				<li><mark>Introduction</mark> (mt 1)</li>
+				<li"><mark style="color:#ffab40;">Infancy</mark> (mt 2)</li>
+				<ul>
+					<li>John the Baptist born</li>
+				</ul>
+				<li><mark class="highlight">Year of Preparation</mark> (mt 3 (Jn 1:19-4; lk 3-4:30; mk 1:1-13))</li>
+				<ul>
+					<li>John the Baptist <mark>baptizing</mark> at the river Jordan</li>
+				</ul>
+				<li><mark style="color:#ffab40;">Year of Popularity</mark> (mt 4:12)</li>
+				<ul>
+					<li>John the Baptist arrested</li>
+				</ul>
+				<li><mark style="color:#ffab40;">Year of Passion</mark> (mt 14 -27 (jn 6; lk 9-23; mk 10-15))</li>
+				<ul>
+					<li>John the Baptist beheaded</li>
+				</ul>
+				<li><mark style="color:#ffab40;">The Risen Life</mark> (mt 28-Acts)</li>
+			</ul>
 		</div>
 		
+		<br>
+		<hr class="small">
+		<br>
+		
+		<h1 name="par2" id="par2">Verses we will explore today:</h1>
+		
+		<div style="text-align: left; padding: 20px; width: fit-content; max-width: 1500px; margin: auto;">
+			<ul>
+				<li><mark>John 1:19-34</mark> (Year of Preparation, John preaching)</li>
+				<ul>
+					<li>This is the main passage. These other passages will be used to expound on this.</li>
+				</ul>
+				<li>Matthew 3 (Year of Preparation, John preaching)</li>
+				<li>Matthew 11 (Year of Popularity, John in prison)</li>
+				<li>Matthew 17 (Year of Passion, John is dead)</li>
+				<li>These verses outside of the Gospels will be used:</li>
+				<ul>
+					<li>Micah 3,4; Isaiah 11; Romans 6.</li>
+				</ul>
+			</ul>
+		</div>
+		
+		<br>
+		<hr class="small">
+		<br>
+		<h1 name="par2" id="par2">Optional Questioneer:</h1>
+		
+		
+		<div style="text-align: left; padding: 50px; width: fit-content; max-width: 1500px; margin: auto;">
+			<ol>
+				<li id="Q1">The biblical account of whom helps to mark the phase of Jesus’ ministry in the Gospels? <mark id="entry1" name="entry1" data-correction="John the Baptist" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				<li id="Q2">John was baptizing during Jesus’ year of <mark id="entry2" name="entry2" data-correction="Preparation" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				<li id="Q3">John was an Old Testament or New Testament prophet? <mark id="entry3" name="entry3" data-correction="He was an OT prophet" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				<li id="Q4">Why was Jesus baptized? <mark id="entry4" name="entry4" data-correction="To fulfill all righteousness" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				<li id="Q5">What did Jesus do after his baptism? <mark id="entry5" name="entry5" data-correction="He was tempted in the desert" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				<li id="Q6">Who was John warning that God’s chosen one would judge and baptize with fire in Matthew 3? <mark id="entry6" name="entry6" data-correction="The Pharisees and Sadducees" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				<ol type="a">
+					<li id="Qa">What did John tell them to do? <mark id="entryA" name="entryA" data-correction="Produce fruit in keeping with repentance" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+					<li id="Qb">Should we also do this? <mark id="entryB" name="entryB" data-correction="Yes" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				</ol>
+				<li id="Q7">If Jesus baptized with water, what will Jesus baptize with? <mark id="entry7" name="entry7" data-correction="The Holy Spirit" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li><br>
+				<li id="Q8">Are you baptized in this way? <mark id="entry8" name="entry8" data-correction="???" onclick="targeting(); drawerOpenClose('inputCanvas1');">____________________</mark>.</li>
+			</ol>
+		</div>
 		
 		<hr>
 		
-		<h1 name="header" id="header">Change to "index.html"</h1>
+		<p name="header" id="header">Our Church Website</p>
+		<a href="https://livingthelifetogether.com/locations/eac/" >Livingthelifetogether.com</a>
+		<br>
 		
+		<hr class="small">
+		<p name="header" id="header">To share this guide with others, use this QR code.</p>
+		<img src="https://github.com/stevo82930/Repository/blob/main/Github%20Repository.png?raw=true" alt="Logo From FB" style="width:30%;height:30%; max-width: 200px; margin: auto;">
+		<br>
+		<br>
+		<br>
+		<br>
 	</div>
 
 	<div id="inputCanvas1" class ="inputCanvas">
 		<br>
-		<form action="#" onsubmit="submitInputProxy(); closeProxy(); return false;">
-				<input type="input" name="inputProxy" id="inputProxy" value="1">
-			<p name="description" id="description"></p>
-			<button type="submit" name="proxySubmit" id="proxySubmit" class="disable-select onCanvas">Submit ➤</button>
-		</form>
-		<hr>
-		<button type="button" name="closeproxy" id="closeproxy" class="disable-select onCanvas" onclick="drawerOpenClose()">Close</button>
+		<input name="inputProxy" id="inputProxy" value="">
+		<p name="description" id="description"></p>
+		<button type="button" name="proxySubmit" id="proxySubmit" class="disable-select onCanvas" onclick="drawerOpenClose(); submitInputProxy(); ">Submit ➤</button>
+		<br>
+		<br>
+		<hr class="small">
+		<br>
+		<button type="button" name="hint" id="hint" class="disable-select onCanvas" onclick="autoEnterProxy();">Show Answer</button>
+		<br>
+		<br>
+		<hr class="small">
+		<br>
+		<button type="button" name="closeproxy" id="closeproxy" class="disable-select onCanvas" onclick="drawerOpenClose();">Close</button>
 	</div>
 
-	<div id="bottomTabCanvas" class ="bottomTabCanvas">
-		<div id="bottomList" class="listOfItems">
-			<button type="button" name="engage" id="engage" class="disable-select listitem darkText">Engage with an NPC</button>
-			<hr class="small">
-			<button type="button" name="talk" id="talk" class="disable-select listitem darkText">Converse with NPC</button>
-			<hr class="small">
-			<button type="button" name="stuffto" id="stuffto" class="disable-select listitem darkText">Use/give item on/to NPC</button>
-			<hr class="small">
-			<button type="button" name="stufffrom" id="stufffrom" class="disable-select listitem darkText">Request an item/favor from the NPC</button>
-			<hr class="small">
-			<button type="button" name="poke" id="poke" class="disable-select listitem darkText">Assult/provoke the NPC</button>
-			<hr class="small">
-			<button type="button" name="flee" id="flee" class="disable-select listitem darkText">Break from all engagements</button>
-			<hr class="small">
-			<button type="button" name="other" id="other" class="disable-select listitem darkText">Attempt something not listed</button>
-		</div>
-		<hr>
-		<div>
-			<button type="button" name="closeBottom" id="closeBottom" class="disable-select closeBTN darkText" onclick="drawerOpenClose()">Close</button>
-		</div>
-	</div>
 
 </body>
 <script>
@@ -567,33 +610,13 @@
 		//list of canvases to ensure closeure.
 		const canvas = [
 			"inputCanvas1",
-			"detailsCanvas1",
-			"statusListCanvas1",
-			"itemsListCanvas1",
-			"titlesListCanvas1",
-			"endeavorCanvas",
-			"discoverCanvas",
-			"partyCanvas",
-			"selfCanvas",
-			"enemyCanvas",
-			"npcCanvas",
-			"playerCanvas",
-			"controllerCanvas",
-			
 			"tempCanvasV",
 			"tempCanvasH",
-			
 			"tempCenterCanvas"
 		];
-		
-		if(element.classList.contains("vertical") && specific != "close"){
-			axis = "vertical";
-		}
-		
-		
-		
 		for(let i = 0; i < canvas.length; i++){
 			if(canvas[i] == specific && userFocus != canvas[i]){
+				if(specific == "inputCanvas1")prepInputProxy();
 				if(specific == "statusListCanvas1" || specific == "itemsListCanvas1" || specific == "titlesListCanvas1" || specific == "tempCanvasH"){
 					document.getElementById(specific).style.width = "100%";
 				}else{
@@ -601,7 +624,10 @@
 				}
 				userFocus = specific;
 			}else{
-				if(canvas[i] == userFocus)userFocus = "body";
+				if(canvas[i] == userFocus){
+					userFocus = "body";
+					document.getElementById("inputProxy").blur();
+				}
 				if(canvas[i] == "statusListCanvas1" || canvas[i] == "itemsListCanvas1" || canvas[i] == "titlesListCanvas1" || canvas[i] == "tempCanvasH"){
 					if(document.getElementById(canvas[i])!== null) document.getElementById(canvas[i]).style.width = "0%";
 					
@@ -609,23 +635,52 @@
 					if(document.getElementById(canvas[i])!== null) document.getElementById(canvas[i]).style.height = "0%";
 				}
 			}
-			//document.getElementById("inputProxy").blur();
+			
 		}
+		
+	}
+	
+	
+	function prepInputProxy() {
+		const currentEntry = document.getElementById(target);
+		const parentClause = document.getElementById(currentEntry.parentNode.id).innerText;
+		const existingText = currentEntry.innerText;
+		const inputBox = document.getElementById("inputProxy");
+		document.getElementById("description").innerHTML = parentClause;
+		inputBox.value = existingText;
+		document.getElementById("inputProxy").focus();
+		document.getElementById("inputProxy").select();
+	}
+	
+	function autoEnterProxy(targetedText = target){
+		const currentEntry = document.getElementById(targetedText);//Parent must have ID.
+		const correction = currentEntry.getAttribute("data-correction");
+		const inputBox = document.getElementById("inputProxy");
+		document.getElementById("inputProxy").blur();
+		inputBox.value = correction;
+		//document.getElementById(targetedText).innerText = correction;
 	}
 	
 	//This will now be to process user input.This should be different from the other button inputs.
-	function submitInputProxy() {
-	alert("submit was success Probe 81");
-		var newInput = Number(document.getElementById("inputProxy").value);
+	function submitInputProxy(targetedText = target) {
+	const originalElement = event.target || event.srcElement || event.originalTarget;
+		var newInput = document.getElementById("inputProxy").value;
+		var textToChange = document.getElementById(targetedText).value;
 		switch(target) {
-			case "boxes":
-				//boxes = newInput;
-				//updateText("boxes", boxes);
+			case "specific target":
+				sr.x;
 				break;
 			default:
-				alert(newInput);
+				document.getElementById(targetedText).innerText = newInput;
 		}
 		//saveToLocalStorage();
+	}
+	
+	
+	function targeting(){
+		const eventId= event.target.id;
+		target = eventId;
+		return eventId;
 	}
 </script>
 </html>
